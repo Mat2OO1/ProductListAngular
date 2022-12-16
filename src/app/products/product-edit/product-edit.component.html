@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text"
+             id="name"
+             class="form-control"
+             formControlName="name">
+    </div>
+      <div class="form-group">
+        <label for="name">Weight</label>
+        <input type="text"
+               id="weight"
+               class="form-control"
+               formControlName="weight">
+      </div>
+      <div class="form-group">
+        <label for="name">Price</label>
+        <input type="text"
+               id="price"
+               class="form-control"
+               formControlName="price">
+      </div>
+      <div class="form-group">
+        <label for="category">Category</label>
+        <input type="text"
+               id="category"
+               class="form-control"
+               formControlName="category">
+      </div>
+
+      <button
+        class="btn btn-primary"
+        type="submit">Submit</button>
+    </form>
+  </div>
+</div>

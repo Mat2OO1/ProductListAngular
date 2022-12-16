@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+      <table class="table table-dark table-striped table-hover">
+        <thead>
+        <tr>
+          <th scope="col" *ngFor="let header of headings">{{header}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr
+          *ngFor="let product of products;"
+          (click)="onClickRow(product.id)"
+          [ngClass]="selectedRow === product.id ? 'table-info' : '' ">
+          <th scope="col">{{product.id}}</th>
+          <td>{{product.name}}</td>
+          <td>{{product.weight}}</td>
+          <td>{{product.price}}</td>
+          <td>{{product.category}}</td>
+        </tr>
+        </tbody>
+      </table>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <button
+        class="btn btn-success"
+        (click)="onAdd()">Add</button>
+
+  </div>
+    <div
+      class="col-sm-3">
+      <button
+        class="btn btn-primary"
+        (click)="onSelect()"
+        [disabled]="selectedRow===-1">Select</button>
+  </div>
+    <div class="col-sm-3">
+      <button
+        class="btn btn-dark"
+        [disabled]="selectedRow===-1"
+        (click)="onEdit()">Edit</button>
+    </div>
+    <div class="col-sm-3">
+      <button
+        class="btn btn-danger"
+        [disabled]="selectedRow===-1"
+        (click)="onDelete()"
+      >Delete</button>
+    </div>
+  </div>
+  <app-product-edit *ngIf="editMode" [editMode] ="editMode" [mode]="mode"></app-product-edit>
+  <app-product-detail *ngIf="select" [select]="select"></app-product-detail>
+</div>
