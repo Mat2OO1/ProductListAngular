@@ -29,6 +29,7 @@ export class ProductsComponent {
     this.productsService.productsChanged.subscribe(data => {
       this.products = data;
     })
+
   }
 
   onClickRow(index: number){
